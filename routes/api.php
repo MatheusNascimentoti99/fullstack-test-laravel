@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HelloController;
-
+use App\Http\Controllers\FormController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,7 +26,10 @@ Route::get('/', function (Request $request) {
     ]);
 });
 
-Route::get('/hello', [ HelloController::class, 'hello' ]);
+Route::get('/hello', [HelloController::class, 'hello']);
 
+
+Route::get('/current-date', [FormController::class, 'currentDate']);
+Route::post('/submit', [FormController::class, 'submit']);
 // TODO: criar uma rota que retorne a data-hora atual (sugestão: use a função `now()`)
 // TODO: criar uma rota POST que chame uma função em um controller e retorne o texto recebido na requisição
